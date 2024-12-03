@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>CS 5744 Project 2</title>
+  <meta name="description"
+    content="high level design page project 1">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+<div class="brand">
+  <a href="testplan.html">Project 2 - Test SchedRunner <br></a>
+</div>
+<div class="nav-wrapper">
+
+  <div class="nav-link-wrapper">
+    <a href="testscope.html">Test Scope</a>
+  </div>
+
+  <div class="nav-link-wrapper">
+    <a href="testplan.html">Test Plan</a>
+  </div>
+
+  <div class="nav-link-wrapper">
+    <a href="testprocedure.html">Test Procedure</a>
+  </div>
+
+  <div class="nav-link-wrapper">
+    <a href="validationtests.html">Validation Tests</a>
+  </div>
+
+
+</div>
+  <br>
+
+  <main>
+    <div class="container">
+      <h3>Integration Builds Plan</h3>
+      <p>The integration builds for the SchedRunner system are designed to ensure a structured and effective approach to assembling and verifying the major components of the system. This plan outlines incremental phases that prioritize stability, scalability, and compliance with system requirements. Each phase builds on the prior one, ensuring that no critical dependencies or functionalities are overlooked.</p>
+
+      <h3>Phase 1: Core Job Management</h3>
+      <h5>Components Included:</h5>
+      <ul>
+        <li>Job Configuration and Management: Validate that users can create and edit jobs with detailed descriptions, scheduling intervals, and dependency definitions.</li>
+        <li>Dependency Management: Test the system's ability to manage jobs with dependencies, ensuring proper state transitions between "waiting" and "pending" states.</li>
+        <li>Job Deletion: Confirm safe removal of jobs without leaving orphaned dependencies or corrupting records.</li>
+      </ul>
+      <h5>Purpose:</h5>
+      <p>This phase ensures that the foundational elements of job management operate correctly. The ability to create, manage, and delete jobs with dependencies forms the core of the SchedRunner system.</p>
+      <h5>Testing Focus:</h5>
+      <ul>
+        <li>Verify that jobs can be created and edited as per user specifications.</li>
+        <li>Ensure jobs with dependencies do not execute prematurely.</li>
+        <li>Validate that deleted jobs are removed without affecting linked or unrelated jobs.</li>
+      </ul>
+      <h5>Overhead Software Needed:</h5>
+      <ul>
+        <li>Stubs to simulate incomplete dependency resolutions.</li>
+        <li>Test drivers to automate job creation, dependency linking, and deletion processes.</li>
+      </ul>
+      <h5>Rationale:</h5>
+      <p>Testing these core functionalities first ensures that the rest of the system has a stable and reliable base. Errors at this stage would propagate throughout the system, so identifying and resolving them early is critical.</p>
+
+      <h3>Phase 2: Target Machine Management and Scheduling</h3>
+      <h5>Components Included:</h5>
+      <ul>
+        <li>Flexible Job Scheduling: Verify the ability to configure jobs to run at specific intervals, respecting timing constraints and recurring patterns.</li>
+        <li>Target Machine Management: Ensure that jobs are executed only on authorized machines and that compatibility with various operating systems is maintained.</li>
+        <li>Error Logging: Test the logging of invalid assignments, unauthorized machine access, and other errors.</li>
+      </ul>
+      <h5>Purpose:</h5>
+      <p>This phase validates the interaction between job management and target machines. It ensures the seamless execution of jobs across user-defined machines while maintaining secure and accurate operations.</p>
+      <h5>Testing Focus:</h5>
+      <ul>
+        <li>Confirm that scheduling adheres to user-defined parameters (daily, weekly, etc.).</li>
+        <li>Test system responses when jobs are assigned to invalid or non-existent machines.</li>
+        <li>Validate comprehensive logging of job execution and scheduling errors.</li>
+      </ul>
+      <h5>Overhead Software Needed:</h5>
+      <ul>
+        <li>Mock target machine APIs to simulate job execution environments.</li>
+        <li>Drivers to test scheduling algorithms and validate timing constraints.</li>
+      </ul>
+      <h5>Rationale:</h5>
+      <p>Integrating target machine management and scheduling at this stage ensures that the jobs created in Phase 1 can be executed in realistic environments. Error handling and logging are also verified to establish robust monitoring mechanisms.</p>
+
+      <h3>Phase 3: Real-Time Monitoring and User Actions</h3>
+      <h5>Components Included:</h5>
+      <ul>
+        <li>Real-Time Monitoring: Ensure that users can view live updates of job statuses (e.g., "Pending," "Running," "Failed").</li>
+        <li>User Actions: Test controls for starting, pausing, and terminating jobs, with immediate interface feedback.</li>
+        <li>Error Handling and Status Updates: Validate the system’s ability to handle unexpected failures and accurately reflect changes in the user interface.</li>
+      </ul>
+      <h5>Purpose:</h5>
+      <p>This phase tests the system's responsiveness to user interactions and its ability to provide real-time feedback. These features are critical for a user-friendly experience and efficient job management.</p>
+      <h5>Testing Focus:</h5>
+      <ul>
+        <li>Verify that the system updates job statuses in real time.</li>
+        <li>Confirm that user actions (e.g., terminate or pause jobs) are reflected immediately.</li>
+        <li>Test the robustness of error handling and ensure that failed jobs are accurately logged.</li>
+      </ul>
+      <h5>Overhead Software Needed:</h5>
+      <ul>
+        <li>Drivers to simulate rapid job state changes.</li>
+        <li>Monitoring stubs to validate real-time updates and synchronization with the user interface.</li>
+      </ul>
+      <h5>Rationale:</h5>
+      <p>Real-time monitoring and control bridge the gap between system functionality and user interaction. Testing these features ensures that users have a reliable and responsive platform to manage their workflows.</p>
+
+      <h3>Phase 4: Scalability and Fault Tolerance</h3>
+      <h5>Components Included:</h5>
+      <ul>
+        <li>Dynamic Node Management: Validate the system's ability to dynamically add or remove worker nodes.</li>
+        <li>Load Handling: Test performance under high job volumes and ensure effective load balancing across worker nodes.</li>
+        <li>Control Node Recovery: Verify the system’s fault tolerance during node failures, including failover mechanisms and state recovery.</li>
+      </ul>
+      <h5>Purpose:</h5>
+      <p>This phase focuses on the system's ability to handle scalability and fault tolerance, ensuring reliability under stress and failure scenarios.</p>
+      <h5>Testing Focus:</h5>
+      <ul>
+        <li>Confirm that the system can seamlessly scale by adding/removing nodes without disruption.</li>
+        <li>Validate load balancing to maintain performance during high job volumes.</li>
+        <li>Test failover mechanisms to ensure smooth recovery of control nodes and job states.</li>
+      </ul>
+      <h5>Overhead Software Needed:</h5>
+      <ul>
+        <li>Simulated worker nodes to test scaling and load balancing.</li>
+        <li>Mock failure scenarios to validate control node recovery processes.</li>
+      </ul>
+      <h5>Rationale:</h5>
+      <p>Scalability and fault tolerance are critical for real-world applications of SchedRunner. Testing these aspects ensures that the system can grow with user needs and remain reliable in adverse conditions.</p>
+
+      <h3>Phase 5: API Integration and Logging</h3>
+      <h5>Components Included:</h5>
+      <ul>
+        <li>CRUD API Interactions: Verify job creation, editing, deletion, and log retrieval.</li>
+        <li>Worker Job API: Test worker node interactions, including updating job statuses and retrieving pending job details.</li>
+        <li>Comprehensive Logging: Ensure that all system events are recorded with accurate timestamps and recoverable logs.</li>
+      </ul>
+      <h5>Purpose:</h5>
+      <p>This final phase ensures that APIs are integrated seamlessly with the system, supporting secure and efficient operations. Logging functionalities are also validated to provide an audit trail for all activities.</p>
+      <h5>Testing Focus:</h5>
+      <ul>
+        <li>Verify API security, including OAuth authentication and Active Directory authorization.</li>
+        <li>Test API interactions for managing job records and retrieving logs.</li>
+        <li>Confirm that logs remain consistent and recoverable even after node failures.</li>
+      </ul>
+      <h5>Overhead Software Needed:</h5>
+      <ul>
+        <li>API testing tools to simulate interactions and validate responses.</li>
+        <li>Logging stubs to ensure data integrity and completeness.</li>
+      </ul>
+      <h5>Rationale:</h5>
+      <p>APIs are essential for extending the system's functionality and enabling integration with other platforms. Comprehensive logging further ensures system reliability and transparency.</p>
+
+      <h3>Visual Representation of Integration Builds</h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Components</th>
+          <th>Purpose</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Phase 1</td>
+          <td>Job configuration, dependency management, deletion</td>
+          <td>Validate core job management features.</td>
+        </tr>
+        <tr>
+          <td>Phase 2</td>
+          <td>Target machine management, scheduling, error logging</td>
+          <td>Test interactions with target machines.</td>
+        </tr>
+        <tr>
+          <td>Phase 3</td>
+          <td>Real-time monitoring, user actions, error handling</td>
+          <td>Confirm system responsiveness and control.</td>
+        </tr>
+        <tr>
+          <td>Phase 4</td>
+          <td>Scalability, fault tolerance, node management</td>
+          <td>Ensure system performance under stress.</td>
+        </tr>
+        <tr>
+          <td>Phase 5</td>
+          <td>API interactions, logging, status tracking</td>
+          <td>Verify API-driven operations and reliability.</td>
+        </tr>
+        </tbody>
+      </table>
+      <p>This comprehensive plan ensures that the SchedRunner system is systematically assembled and tested, starting from foundational functionalities and progressing to complex integrations. By following this structured approach, the team can identify and address issues early, ensuring a reliable and scalable system.</p>
+    </div>
+
+  </main>
+
+
+</body>
+
+</html>

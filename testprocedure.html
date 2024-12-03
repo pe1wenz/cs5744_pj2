@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>CS 5744 Project 2</title>
+  <meta name="description"
+    content="modules page project 1">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+<div class="brand">
+  <a href="testplan.html">Project 2 - Test SchedRunner <br></a>
+</div>
+<div class="nav-wrapper">
+
+  <div class="nav-link-wrapper">
+    <a href="testscope.html">Test Scope</a>
+  </div>
+
+  <div class="nav-link-wrapper">
+    <a href="testplan.html">Test Plan</a>
+  </div>
+
+  <div class="nav-link-wrapper">
+    <a href="testprocedure.html">Test Procedure</a>
+  </div>
+
+  <div class="nav-link-wrapper">
+    <a href="validationtests.html">Validation Tests</a>
+  </div>
+
+
+</div>
+  <br>
+
+  <main>
+    <div class="container">
+      <h3>Test Procedure</h3>
+
+      <!-- Phase 1 -->
+      <section id="phase-1">
+        <h3>Phase 1: Core Job Management</h3>
+        <h4>Test Scenarios</h4>
+        <ol>
+          <li>
+            <strong>Initialize test environment with dependency management stubs:</strong>
+            <ul>
+              <li>Sets up isolated test environment with mock dependency tracking system</li>
+              <li>Prepares stubs to simulate dependency behaviors without full system integration</li>
+              <li>Ensures test database is clean and configured properly</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Create test job with multiple dependencies:</strong>
+            <ul>
+              <li>Creates a complex test job with at least 3 dependent jobs</li>
+              <li>Configures varied dependency types (sequential, parallel)</li>
+              <li>Sets specific conditions and requirements for each dependency</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Verify job state is set to WAITING_FOR_DEPENDENCIES:</strong>
+            <ul>
+              <li>Checks that newly created job correctly enters WAITING_FOR_DEPENDENCIES state</li>
+              <li>Validates state is properly recorded in database</li>
+              <li>Confirms all dependency relationships are correctly mapped</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Simulate dependency completion one by one:</strong>
+            <ul>
+              <li>Systematically marks each dependent job as complete</li>
+              <li>Tests different completion orders to ensure robustness</li>
+              <li>Verifies state updates are properly propagated</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Validate job transitions to PENDING state when all dependencies complete:</strong>
+            <ul>
+              <li>Confirms automatic state transition occurs when final dependency completes</li>
+              <li>Verifies timing of state change is within acceptable limits</li>
+              <li>Checks that all relevant logs and records are updated</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test job deletion and verify dependency cleanup:</strong>
+            <ul>
+              <li>Deletes jobs with various dependency configurations</li>
+              <li>Ensures all related dependency records are properly removed</li>
+              <li>Validates that dependent jobs are either cleaned up or blocked appropriately</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Validate error handling for circular dependencies:</strong>
+            <ul>
+              <li>Attempts to create circular dependency chains</li>
+              <li>Verifies system detects and prevents circular dependencies</li>
+              <li>Tests error messages and logging for clarity and accuracy</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test concurrent job creation and dependency management:</strong>
+            <ul>
+              <li>Creates multiple jobs simultaneously with shared dependencies</li>
+              <li>Validates system handles race conditions properly</li>
+              <li>Ensures dependency tracking remains accurate under load</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Verify job editing maintains dependency integrity:</strong>
+            <ul>
+              <li>Modifies existing jobs with dependencies</li>
+              <li>Changes dependency configurations of running jobs</li>
+              <li>Confirms all dependency relationships remain valid after edits</li>
+            </ul>
+          </li>
+        </ol>
+        <h4>Required Overhead Software</h4>
+        <ul>
+          <li>Dependency Resolution Simulator</li>
+          <li>Job State Monitor</li>
+          <li>Test Database</li>
+          <li>Automated Test Driver</li>
+          <li>Mock Job Creator</li>
+          <li>Race Condition Simulator</li>
+          <li>State Verification Suite</li>
+          <li>Dependency Graph Analyzer</li>
+          <li>Test Data Generator</li>
+        </ul>
+      </section>
+
+      <!-- Phase 2 -->
+      <section id="phase-2">
+        <h3>Phase 2: Target Machine Management and Scheduling</h3>
+        <h4>Test Scenarios</h4>
+        <ol>
+          <li>
+            <strong>Initialize target machine test environment:</strong>
+            <ul>
+              <li>Set up mock machines with different operating systems (Windows, Linux, macOS)</li>
+              <li>Configure network connectivity simulation for each machine</li>
+              <li>Establish baseline monitoring for machine states</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test basic scheduling functionality:</strong>
+            <ul>
+              <li>Create jobs with daily, weekly, and monthly schedules</li>
+              <li>Verify jobs execute at specified times within ±1 second tolerance</li>
+              <li>Confirm schedule persistence across system restarts</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test machine authorization checks:</strong>
+            <ul>
+              <li>Attempt job execution on authorized machines</li>
+              <li>Try running jobs on unauthorized machines</li>
+              <li>Verify authorization changes are immediately enforced</li>
+              <li>Confirm proper logging of authorization attempts</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Validate cross-platform compatibility:</strong>
+            <ul>
+              <li>Test job execution on Windows target machines</li>
+              <li>Verify job execution on Linux target machines</li>
+              <li>Confirm job execution on macOS target machines</li>
+              <li>Ensure consistent behavior across all platforms</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test schedule conflict handling:</strong>
+            <ul>
+              <li>Create intentionally conflicting job schedules</li>
+              <li>Verify priority-based execution ordering</li>
+              <li>Confirm proper queuing of lower priority jobs</li>
+              <li>Validate conflict resolution logging</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test machine resource validation:</strong>
+            <ul>
+              <li>Verify CPU requirement checks</li>
+              <li>Validate memory availability verification</li>
+              <li>Test disk space requirement validation</li>
+              <li>Confirm network bandwidth checks</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test error logging and reporting:</strong>
+            <ul>
+              <li>Validate logging of invalid machine assignments</li>
+              <li>Verify unauthorized access attempt logging</li>
+              <li>Confirm machine offline status logging</li>
+              <li>Test error notification delivery</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test schedule modification handling:</strong>
+            <ul>
+              <li>Update existing job schedules</li>
+              <li>Modify machine assignments for running jobs</li>
+              <li>Verify changes take effect at appropriate times</li>
+              <li>Confirm modification audit trail</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Performance test scheduling system:</strong>
+            <ul>
+              <li>Run multiple concurrent schedules</li>
+              <li>Test system with high volume of scheduled jobs</li>
+              <li>Verify timing accuracy under load</li>
+              <li>Validate resource utilization tracking</li>
+            </ul>
+          </li>
+        </ol>
+        <h4>Required Overhead Software</h4>
+        <ul>
+          <li>Machine Environment Simulator</li>
+          <li>Schedule Testing Framework</li>
+          <li>Resource Monitor</li>
+          <li>Authorization Simulator</li>
+          <li>Error Generation Suite</li>
+        </ul>
+      </section>
+
+      <!-- Continue similarly for subsequent phases -->
+    </div>
+  </main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Brand logo */
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.brand a {
+    text-decoration: none;
+    color: #333;
+}
+
+.brand a:hover {
+    /*color: #555;*/
+}
+
+/* Nav bar container */
+.nav-wrapper {
+    display: flex;
+    background-color: #333;
+    padding: 10px 0;
+    justify-content: center; /* Centers the nav links */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Each nav item */
+.nav-link-wrapper {
+    margin: 0 20px;
+}
+
+.nav-link-wrapper a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for nav links */
+.nav-link-wrapper a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Main content styling */
+main {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #4a90e2;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 5px;
+}
+
+h4 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+h5 {
+    font-size: 1.3em;
+    color: #333;
+    margin-top: 15px;
+    margin-left: 1.1rem;
+    margin-right: 1.1rem;
+    @media (max-width: 768px) {
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+    }
+
+}
+
+h6 {
+    font-size: 1.1em;
+    color: #777;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-left: 2.2rem;
+    margin-right: 2.2rem;
+    @media (max-width: 768px) {
+        margin-left: 0.4rem;
+        margin-right: 0.4rem;
+    }
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table thead {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+table th {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+ul,
+ol {
+    margin-left: 20px;
+    padding-left: 0;
+    margin-left: 3.3rem;
+    margin-right: 3.3rem;
+    @media (max-width: 768px) {
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+
+}
+
+ul li,
+ol li {
+    margin-bottom: 8px;
+    margin-left: 3.3rem;
+    margin-right: 3.3rem;
+    @media (max-width: 768px) {
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+}
+
+strong {
+    color: #4a90e2;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #444;
+    margin-left: 6.6rem;
+    margin-right: 6.6rem;
+    @media (max-width: 768px) {
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
+    }
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+li {
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    min-width: 70%;
+}
+
+.img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 5rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5rem;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+}
