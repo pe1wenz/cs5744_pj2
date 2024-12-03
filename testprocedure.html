@@ -5,7 +5,7 @@
   <meta charset='UTF-8'>
   <title>CS 5744 Project 2</title>
   <meta name="description"
-    content="modules page project 1">
+    content="testing procedure page project 2">
   <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -38,12 +38,11 @@
 
   <main>
     <div class="container">
-      <h3>Test Procedure</h3>
+      <h3>Test Procedures</h3>
 
       <!-- Phase 1 -->
       <section id="phase-1">
         <h3>Phase 1: Core Job Management</h3>
-        <h4>Test Scenarios</h4>
         <ol>
           <li>
             <strong>Initialize test environment with dependency management stubs:</strong>
@@ -118,7 +117,7 @@
             </ul>
           </li>
         </ol>
-        <h4>Required Overhead Software</h4>
+        <h3>Required Overhead Software</h3>
         <ul>
           <li>Dependency Resolution Simulator</li>
           <li>Job State Monitor</li>
@@ -135,7 +134,6 @@
       <!-- Phase 2 -->
       <section id="phase-2">
         <h3>Phase 2: Target Machine Management and Scheduling</h3>
-        <h4>Test Scenarios</h4>
         <ol>
           <li>
             <strong>Initialize target machine test environment:</strong>
@@ -217,7 +215,7 @@
             </ul>
           </li>
         </ol>
-        <h4>Required Overhead Software</h4>
+        <h3>Required Overhead Software</h3>
         <ul>
           <li>Machine Environment Simulator</li>
           <li>Schedule Testing Framework</li>
@@ -227,8 +225,290 @@
         </ul>
       </section>
 
-      <!-- Continue similarly for subsequent phases -->
+
+      <!-- Phase 3 -->
+      <section id="phase-3">
+        <h3>Phase 3: Real-Time Monitoring and User Actions</h3>
+        <ol>
+          <li>
+            <strong>Set up real-time monitoring environment:</strong>
+            <ul>
+              <li>Configure monitoring service with WebSocket connections</li>
+              <li>Set up test dashboard for status visualization</li>
+              <li>Initialize monitoring database and logging system</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test basic status update flow:</strong>
+            <ul>
+              <li>Verify status updates appear within 200ms of state change</li>
+              <li>Confirm all job states are correctly displayed (Pending, Running, Failed)</li>
+              <li>Validate status persistence in monitoring database</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test user control operations:</strong>
+            <ul>
+              <li>Validate immediate job start functionality</li>
+              <li>Test pause operation on running jobs</li>
+              <li>Verify job termination process</li>
+              <li>Confirm status updates reflect each action</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Verify concurrent user actions:</strong>
+            <ul>
+              <li>Test multiple users performing actions simultaneously</li>
+              <li>Validate operation priority handling</li>
+              <li>Ensure consistent state across all user sessions</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test error handling scenarios:</strong>
+            <ul>
+              <li>Simulate various job failure conditions</li>
+              <li>Verify error messages appear in monitoring interface</li>
+              <li>Confirm error details are properly logged</li>
+              <li>Test automatic retry mechanisms</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Validate interface responsiveness:</strong>
+            <ul>
+              <li>Measure UI update latency under normal load</li>
+              <li>Test interface performance with rapid state changes</li>
+              <li>Verify UI consistency across different browsers</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test monitoring system recovery:</strong>
+            <ul>
+              <li>Simulate monitoring service interruption</li>
+              <li>Verify state reconciliation after service restoration</li>
+              <li>Confirm no status updates are lost during recovery</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Performance test monitoring system:</strong>
+            <ul>
+              <li>Generate high volume of status updates (1000/second)</li>
+              <li>Monitor system response under load</li>
+              <li>Verify accuracy of updates during high load</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test notification system:</strong>
+            <ul>
+              <li>Verify alert generation for critical events</li>
+              <li>Test notification delivery to configured channels</li>
+              <li>Validate alert acknowledgment process</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Required Overhead Software</h3>
+        <ul>
+          <li>Status Update Simulator</li>
+          <li>User Action Generator</li>
+          <li>Performance Testing Suite</li>
+          <li>Monitoring Service Mock</li>
+          <li>Error Injection Tool</li>
+        </ul>
+      </section>
+
+      <!-- Phase 4 -->
+      <section id="phase-4">
+        <h3>Phase 4: Scalability and Fault Tolerance</h3>
+        <ol>
+          <li>
+            <strong>Set up distributed test environment:</strong>
+            <ul>
+              <li>Configure minimum of 5 worker nodes</li>
+              <li>Set up control node monitoring</li>
+              <li>Initialize node cluster for scaling tests</li>
+              <li>Configure network simulation tools</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test dynamic node scaling:</strong>
+            <ul>
+              <li>Add new worker nodes during operation</li>
+              <li>Remove worker nodes gracefully</li>
+              <li>Verify job redistribution across nodes</li>
+              <li>Confirm system stability during scaling</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test load balancing functionality:</strong>
+            <ul>
+              <li>Generate increasing job workload</li>
+              <li>Monitor job distribution across nodes</li>
+              <li>Verify even resource utilization</li>
+              <li>Validate load balancing algorithms</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test worker node failure scenarios:</strong>
+            <ul>
+              <li>Simulate abrupt worker node failures</li>
+              <li>Verify automatic job redistribution</li>
+              <li>Confirm no job data loss</li>
+              <li>Validate system recovery time</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test control node failover:</strong>
+            <ul>
+              <li>Simulate control node failure</li>
+              <li>Verify leader election process</li>
+              <li>Confirm system continues operations</li>
+              <li>Validate state consistency after failover</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test network partition handling:</strong>
+            <ul>
+              <li>Simulate network splits between nodes</li>
+              <li>Verify partition tolerance mechanisms</li>
+              <li>Test partition recovery process</li>
+              <li>Confirm data consistency after recovery</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test system performance under load:</strong>
+            <ul>
+              <li>Generate high volume of concurrent jobs</li>
+              <li>Monitor system response times</li>
+              <li>Verify resource utilization patterns</li>
+              <li>Test system capacity limits</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Validate data consistency:</strong>
+            <ul>
+              <li>Verify job state consistency across nodes</li>
+              <li>Test transaction integrity during failures</li>
+              <li>Confirm backup/restore procedures</li>
+              <li>Validate audit trail accuracy</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test system recovery mechanisms:</strong>
+            <ul>
+              <li>Simulate complete system failure</li>
+              <li>Verify state recovery process</li>
+              <li>Test incremental recovery features</li>
+              <li>Validate recovery time objectives</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Required Overhead Software</h3>
+        <ul>
+          <li>Cluster Simulator</li>
+          <li>Load Generator</li>
+          <li>Failure Injection Framework</li>
+          <li>Network Partition Simulator</li>
+          <li>Performance Monitoring Suite</li>
+        </ul>
+      </section>
+
+      <!-- Phase 5 -->
+      <section id="phase-5">
+        <h3>Phase 5: API Integration and Logging</h3>
+        <ol>
+          <li>
+            <strong>Set up API testing environment:</strong>
+            <ul>
+              <li>Configure OAuth authentication system</li>
+              <li>Set up Active Directory integration</li>
+              <li>Initialize API endpoints</li>
+              <li>Configure logging infrastructure</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test CRUD API authentication:</strong>
+            <ul>
+              <li>Validate OAuth token handling</li>
+              <li>Test Active Directory authorization</li>
+              <li>Verify role-based access controls</li>
+              <li>Confirm authentication failure handling</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test job management API endpoints:</strong>
+            <ul>
+              <li>Verify job creation API functionality</li>
+              <li>Test job modification endpoints</li>
+              <li>Validate job deletion API</li>
+              <li>Confirm proper response formats</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test worker node API integration:</strong>
+            <ul>
+              <li>Verify status update API functionality</li>
+              <li>Test job assignment endpoints</li>
+              <li>Validate worker state reporting</li>
+              <li>Confirm worker-control node communication</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test log generation and storage:</strong>
+            <ul>
+              <li>Verify system event logging</li>
+              <li>Test API request logging</li>
+              <li>Validate error event capture</li>
+              <li>Confirm timestamp accuracy</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test log retrieval and filtering:</strong>
+            <ul>
+              <li>Test log search functionality</li>
+              <li>Verify log filtering capabilities</li>
+              <li>Validate log export features</li>
+              <li>Test log aggregation functions</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test API performance and stability:</strong>
+            <ul>
+              <li>Generate high volume API requests</li>
+              <li>Monitor response times under load</li>
+              <li>Test API rate limiting</li>
+              <li>Verify connection pooling</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Validate log integrity:</strong>
+            <ul>
+              <li>Test log file rotation</li>
+              <li>Verify log persistence after failures</li>
+              <li>Confirm log recovery procedures</li>
+              <li>Validate audit trail completeness</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test API error handling:</strong>
+            <ul>
+              <li>Verify invalid request handling</li>
+              <li>Test API timeout scenarios</li>
+              <li>Validate error response formats</li>
+              <li>Confirm error logging accuracy</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Required Overhead Software</h3>
+        <ul>
+          <li>API Testing Suite</li>
+          <li>Authentication Simulator</li>
+          <li>Log Analysis Tools</li>
+          <li>Performance Testing Framework</li>
+          <li>Log Generation System</li>
+        </ul>
+      </section>
     </div>
+
+
   </main>
 
 

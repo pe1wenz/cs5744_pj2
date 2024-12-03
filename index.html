@@ -34,16 +34,114 @@
 
 
 </div>
+<br>
 
-  <br>
+<main>
+  <div class="container">
+    <h3>Testing Scope</h3>
+    <h5>1.0 Scoping Overview</h5>
+    <p>The test scope for SchedRunner outlines the areas of integration and validation testing that are crucial to ensure the system meets its functional, performance, and internal design requirements. It highlights the interactions between system components and the high-level validation of end-to-end workflows, which are aligned with the defined use cases and requirements. However, unit testing will not be included in this scope.</p>
 
-  <main>
-    <div><h1>Test Procedure</h1></div>
-    <h3></h3>
-    <div>
-    </div>
+    <h3>Functional Characteristics</h3>
 
-  </main>
+    <h5>2.1 Job Configuration and Management</h5>
+    <p>Create and edit jobs with detailed descriptions, scheduling intervals, and dependency definitions. Ensure users can edit existing job attributes, including descriptions, schedules, and target machines.</p>
+
+    <h5>2.2 Dependency Management</h5>
+    <p>Verify that jobs with unfinished dependencies remain in a waiting state until all upstream jobs are completed. Test the automatic transition of dependent jobs to a pending state upon completion of their prerequisites.</p>
+
+    <h5>2.3 Job Deletion</h5>
+    <p>Confirm the safe removal of jobs without leaving orphaned dependencies or corrupting other job records.</p>
+
+    <h5>2.4 Flexible Job Scheduling</h5>
+    <p>Validate the ability to configure jobs to run at specific intervals (daily, weekly, or by defined times). Ensure the system respects user-defined timing constraints for job execution. Confirm proper handling of recurring jobs, including their timely rescheduling.</p>
+
+    <h5>2.5 Target Machine Management</h5>
+    <p>Validate that jobs are only executed on user-specified target machines. Ensure compatibility with common operating systems to support cross-platform functionality (NFR-8). Test the rejection of jobs assigned to non-existent or unauthorized target machines.</p>
+
+    <h5>2.6 Real-Time Monitoring and Control</h5>
+    <p>Ensure that users can receive status updates on their jobs. Validate that job statuses (e.g., "Pending," "Running," "Failed") are updated in real-time and accurately displayed in the user interface (NFR-2). Ensure that logs are comprehensive, including timestamps, error messages, and user-configurable details (FR-8).</p>
+
+    <h5>2.7 User Actions</h5>
+    <p>Test user-interacted controls, such as starting, pausing, and terminating jobs, and verify that immediate status updates are reflected in the interface.</p>
+
+    <h5>2.8 Error Logging</h5>
+    <p>Verify that error logs capture job failures, exceptions, and retry attempts with sufficient detail for debugging.</p>
+
+    <h3>Error Handling and Fault Tolerance</h3>
+
+    <h5>3.1 Job Failures</h5>
+    <p>Validate the automatic retry mechanism for failed jobs, ensuring that retries occur within user-defined thresholds. Test the system's ability to gracefully handle unrecoverable job failures and prevent endless retry loops.</p>
+
+    <h5>3.2 Termination Requests</h5>
+    <p>Confirm that termination requests are handled correctly for jobs in both "Pending" and "Pending Machine" states.</p>
+
+    <h5>3.3 Data Integrity</h5>
+    <p>Ensure that no data corruption or loss occurs during error scenarios or job terminations.</p>
+
+    <h3>Performance Characteristics</h3>
+
+    <h5>4.1 Fault Tolerance</h5>
+    <h6>Node Failures</h6>
+    <p>Test the system's ability to detect worker node failures through heartbeat mechanisms and provision replacements (FR-9). Verify that the control node's ability to recover state and redistribute jobs during failover scenarios is validated.</p>
+
+    <h6>Control Node Recovery</h6>
+    <p>Test the consensus algorithm for electing a new control node after a failure. Ensure a smooth resumption of job scheduling and queue management after the control node fails over.</p>
+
+    <h5>4.2 Scalability</h5>
+    <h6>Dynamic Node Management</h6>
+    <p>Validate the system's ability to dynamically add or remove worker nodes without disrupting system operations (NFR-5).</p>
+
+    <h6>Load Handling</h6>
+    <p>Test the system's behavior under high job volumes, ensuring no performance degradation as job throughput increases (NFR-4). Confirm effective load balancing across worker nodes.</p>
+
+    <h5>4.3 Real-Time Responsiveness</h5>
+    <h6>Monitoring Updates</h6>
+    <p>Validate that the system reflects job status changes in real-time, with updates visible in the user interface within seconds (NFR-2).</p>
+
+    <h6>User Actions</h6>
+    <p>Test the response time for user-triggered actions, such as job termination or rescheduling, ensuring minimal delay (NFR-6).</p>
+
+    <h3>Internal Design Characteristics</h3>
+
+    <h5>5.1 Component Communication</h5>
+    <h6>Control Node and Job Queue</h6>
+    <p>Validate the control node's ability to schedule jobs and place them in the distributed queue. Ensure the queue correctly prioritizes jobs based on dependencies and scheduling parameters.</p>
+
+    <h6>Worker Nodes</h6>
+    <p>Test worker nodes' ability to retrieve jobs from the queue and execute them on eligible target machines. Validate synchronization between worker nodes and the control node during failovers, ensuring no job duplication or loss.</p>
+
+    <h6>Target Machines</h6>
+    <p>Confirm that target machines receive and execute assigned jobs accurately. Test the feedback mechanism for reporting job outcomes to the system.</p>
+
+    <h5>5.2 API Interactions</h5>
+    <h6>CRUD API</h6>
+    <p>Validate job creation, editing, deletion, and log retrieval through the CRUD API. Ensure the secure handling of user input and output data.</p>
+
+    <h6>Worker Job API</h6>
+    <p>Verify that worker nodes can update job execution statuses and retrieve pending job details using the Worker Job API.</p>
+
+    <h6>Security</h6>
+    <p>Test OAuth authentication and Active Directory authorization for both APIs to prevent unauthorized access to sensitive data or functionalities.</p>
+
+    <h5>5.3 Logging and Status Tracking</h5>
+    <h6>Comprehensive Logs</h6>
+    <p>Validate that all job-related events, including creation, updates, execution, and failures, are logged with timestamps and detailed information (FR-6, FR-8).</p>
+
+    <h6>Consistency</h6>
+    <p>Ensure that logs are consistent and recoverable even after node failures (NFR-1).</p>
+
+    <h3>Security</h3>
+
+    <h5>Authentication and Authorization</h5>
+    <p>Validate that only authenticated and authorized users can access APIs and control system resources (NFR-7).</p>
+
+    <h5>Data Transmission</h5>
+    <p>Confirm secure communication between system components to ensure data integrity and confidentiality.</p>
+  </div>
+
+
+</main>
 
 
 </body>
