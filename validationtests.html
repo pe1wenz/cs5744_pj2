@@ -157,81 +157,100 @@
       <table>
         <thead>
         <tr>
+          <th>Requirement ID</th>
           <th>Requirement Description</th>
           <th>Validation Test Case</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <td>FR-1 Job creation with detailed configurations</td>
+          <td>FR-1</td>
+          <td>Job creation with detailed configurations</td>
           <td>Verify user ability to create jobs with descriptions, schedules, and dependency definitions.</td>
         </tr>
         <tr>
-          <td>FR-2 Editing job configurations</td>
+          <td>FR-2</td>
+          <td>Editing job configurations</td>
           <td>Test that users can edit existing jobs and changes are reflected correctly in the system.</td>
         </tr>
         <tr>
-          <td>FR-3 Job deletion and cleanup</td>
+          <td>FR-3</td>
+          <td>Job deletion and cleanup</td>
           <td>Confirm that job deletions do not leave orphaned dependencies or corrupt records.</td>
         </tr>
         <tr>
-          <td>FR-4 Dependency management for jobs</td>
+          <td>FR-4</td>
+          <td>Dependency management for jobs</td>
           <td>Validate that jobs remain in "Waiting" state until dependencies are resolved, transitioning correctly.</td>
         </tr>
         <tr>
-          <td>FR-5 Flexible job scheduling</td>
+          <td>FR-5</td>
+          <td>Flexible job scheduling</td>
           <td>Ensure jobs execute at user-defined intervals (daily, weekly, custom times).</td>
         </tr>
         <tr>
-          <td>FR-6 Real-time status monitoring</td>
+          <td>FR-6</td>
+          <td>Real-time status monitoring</td>
           <td>Test that job statuses (e.g., Pending, Running, Failed) are updated in real-time on the dashboard.</td>
         </tr>
         <tr>
-          <td>FR-7 User actions for job control</td>
+          <td>FR-7</td>
+          <td>User actions for job control</td>
           <td>Verify the ability to pause, terminate, and restart jobs with immediate feedback in the UI.</td>
         </tr>
         <tr>
-          <td>FR-8 Comprehensive logging</td>
+          <td>FR-8</td>
+          <td>Comprehensive logging</td>
           <td>Validate detailed logs for job execution, errors, and retries with timestamps and user-friendly messages.</td>
         </tr>
         <tr>
-          <td>NFR-1 Log consistency and recoverability after failures</td>
+          <td>NFR-1</td>
+          <td>Log consistency and recoverability after failures</td>
           <td>Test that logs remain consistent and recoverable after node failures.</td>
         </tr>
         <tr>
-          <td>NFR-2 Real-time updates visible in under 2 seconds</td>
+          <td>NFR-2</td>
+          <td>Real-time updates visible in under 2 seconds</td>
           <td>Confirm status updates appear in the UI within the required time frame.</td>
         </tr>
         <tr>
-          <td>NFR-3 Secure API interactions</td>
+          <td>NFR-3</td>
+          <td>Secure API interactions</td>
           <td>Test OAuth authentication and Active Directory authorization for all API operations.</td>
         </tr>
         <tr>
-          <td>NFR-4 Scalability with high job volumes</td>
+          <td>NFR-4</td>
+          <td>Scalability with high job volumes</td>
           <td>Verify system handles increased workloads without performance degradation.</td>
         </tr>
         <tr>
-          <td>NFR-5 Dynamic addition and removal of worker nodes</td>
+          <td>NFR-5</td>
+          <td>Dynamic addition and removal of worker nodes</td>
           <td>Validate seamless scaling and node removal without disruption to job execution.</td>
         </tr>
         <tr>
-          <td>NFR-6 Minimal response time for user actions</td>
+          <td>NFR-6</td>
+          <td>Minimal response time for user actions</td>
           <td>Confirm actions like job termination or schedule changes have a response time under 1 second.</td>
         </tr>
         <tr>
-          <td>NFR-7 Secure communication between system components</td>
+          <td>NFR-7</td>
+          <td>Secure communication between system components</td>
           <td>Test encryption and integrity of data transmission between control nodes and worker nodes.</td>
         </tr>
         <tr>
-          <td>NFR-8 Cross-platform compatibility for target machines</td>
+          <td>NFR-8</td>
+          <td>Cross-platform compatibility for target machines</td>
           <td>Validate job execution compatibility with Windows, Linux, and macOS environments.</td>
         </tr>
         <tr>
-          <td>NFR-9 Fault tolerance during node failures</td>
+          <td>NFR-9</td>
+          <td>Fault tolerance during node failures</td>
           <td>Verify system failover mechanisms and state recovery after node crashes.</td>
         </tr>
         </tbody>
       </table>
+
 
     </div>
 
